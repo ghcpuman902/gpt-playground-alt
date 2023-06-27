@@ -1,3 +1,4 @@
+"use client"
 import { Message } from 'ai'
 
 import { Separator } from '@/components/ui/separator'

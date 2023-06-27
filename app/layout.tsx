@@ -10,6 +10,7 @@ import { Providers } from '@/components/providers'
 import { Header } from '@/components/header'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://gpt-playground-alt.vercel.app/'),
   title: {
     default: 'Next.js AI Chatbot',
     template: `%s - Next.js AI Chatbot`
@@ -23,9 +24,18 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png'
-  }
-}
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GPT Playground ALT',
+    description: 'The OpenAI Playground Alternative',
+    siteId: '1467726470533754880',
+    creator: '@manglekuo',
+    creatorId: '445613598',
+    images: ['./app/twitter-image.png'],
+  },
 
+}
 interface RootLayoutProps {
   children: React.ReactNode
 }

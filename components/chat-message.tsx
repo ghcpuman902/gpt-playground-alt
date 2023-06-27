@@ -1,3 +1,4 @@
+"use client"
 import { Message } from 'ai'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
@@ -23,7 +24,6 @@ export function ChatMessage({ message, updateMessage, ...props }: ChatMessagePro
   }
   function handleSaveEdit() {
     updateMessage({ ...message, content: editedMessage });
-    console.log(`handleSaveEdit:`,{ ...message, content: editedMessage });
     setIsEditing(false);
   }
   return (
