@@ -8,12 +8,14 @@ import { useCopyToClipboard } from '@/lib/hooks/use-copy-to-clipboard'
 import { cn } from '@/lib/utils'
 
 interface ChatMessageActionsProps extends React.ComponentProps<'div'> {
-  message: Message
+  message: Message;
+  onEdit?: () => void;
 }
 
 export function ChatMessageActions({
   message,
   className,
+  onEdit,
   ...props
 }: ChatMessageActionsProps) {
   const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 })
@@ -35,6 +37,13 @@ export function ChatMessageActions({
         {isCopied ? <IconCheck /> : <IconCopy />}
         <span className="sr-only">Copy message</span>
       </Button>
+      
+      {onEdit && (
+        <Button variant="ghost" size="icon" onClick={onEdit} className="ml-3">
+          <span>Edit</span>
+          <span className="sr-only">Edit message</span>
+        </Button>
+      )}
     </div>
   )
 }

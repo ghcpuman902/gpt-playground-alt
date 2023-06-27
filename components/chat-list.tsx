@@ -1,13 +1,20 @@
-import { type Message } from 'ai'
+import { Message } from 'ai'
 
 import { Separator } from '@/components/ui/separator'
 import { ChatMessage } from '@/components/chat-message'
 
 export interface ChatList {
-  messages: Message[]
+  messages: Message[];
+  setMessages: (messages: Message[]) => void;
 }
 
-export function ChatList({ messages }: ChatList) {
+export function ChatList({ messages, setMessages }: ChatList) {
+  function updateMessage(newMessage: Message) {
+    let prevMessages = structuredClone(messages);
+    prevMessages = prevMessages.map((m) => (m.id === newMessage.id ? newMessage : m));
+    console.log(prevMessages);
+    setMessages(prevMessages);
+  }
   if (!messages.length) {
     return null
   }
@@ -16,7 +23,7 @@ export function ChatList({ messages }: ChatList) {
     <div className="relative mx-auto max-w-2xl px-4">
       {messages.map((message, index) => (
         <div key={index}>
-          <ChatMessage message={message} />
+          <ChatMessage message={message} updateMessage={updateMessage} />
           {index < messages.length - 1 && (
             <Separator className="my-4 md:my-8" />
           )}
