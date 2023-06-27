@@ -6,14 +6,16 @@ import { ChatMessage } from '@/components/chat-message'
 
 export interface ChatList {
   messages: Message[];
-  setMessages: (messages: Message[]) => void;
+  setMessages?: (messages: Message[]) => void;
 }
 
 export function ChatList({ messages, setMessages }: ChatList) {
   function updateMessage(newMessage: Message) {
+    if(!setMessages){
+      return;
+    }
     let prevMessages = structuredClone(messages);
     prevMessages = prevMessages.map((m) => (m.id === newMessage.id ? newMessage : m));
-    console.log(prevMessages);
     setMessages(prevMessages);
   }
   if (!messages.length) {
