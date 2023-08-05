@@ -21,15 +21,16 @@ An OpenAI GPT playground alternative that allows users to bring their own API ke
 - [Next Auth](https://github.com/nextauthjs/next-auth) for authentication
 
 ## Roadmap
-1. Improve token storage with compression for cost-efficient usage.
+1. Improve token usage with compression for cost-efficient usage.
 2. Further UI/UX enhancements for a seamless user experience.
 3. Conduct security assessment and ensure data privacy compliance.
 4. Finalize product and prepare for launch.
 
 ## TODO
-1. Integration of user registration system for storing API keys securely.
+1. Integration of user registration system for storing API keys securely. (and prepare for future OpenAI login)
 2. Incorporate token count and price calculation features.
 3. Implement function calling testing for GPT models.
+4. Use task as tab instead of chat, and add version control within a chat (tree view).
 
 ## Deploy Your Own
 You can deploy your own version of the GPT-Playground-Alt to Vercel with one click:
